@@ -34,7 +34,7 @@ public class ChainingHashTable<K, V> extends DeletelessDictionary<K, V> {
     public ChainingHashTable(Supplier<Dictionary<K, V>> newChain) {
         this.newChain = newChain;
         index = 0;
-        hashTable = new Dictionary[10];
+        hashTable = new Dictionary[0];
     }
 
 
