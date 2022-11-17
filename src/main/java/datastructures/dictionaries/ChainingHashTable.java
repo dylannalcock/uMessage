@@ -69,7 +69,7 @@ public class ChainingHashTable<K, V> extends DeletelessDictionary<K, V> {
     }
 
     private double loadFactor() {
-        return (double)(++items) / (double)hashTable.length;
+        return ((double)(items) + 1) / (double)hashTable.length;
     }
 
     @Override
