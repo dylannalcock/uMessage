@@ -55,22 +55,21 @@ public class ChainingHashTable<K, V> extends DeletelessDictionary<K, V> {
             if(hashTable[index] == null) {
                 hashTable[index] = newChain.get();
             }
-            V returnValue = null;
+            V oldVal = null;
             if(this.find(key) == null) {
-                items ++;
+                items++;
             } else {
-                returnValue = this.find(key);
+                oldVal = this.find(key);
             }
             hashTable[index].insert(key, value);
-            //loadFactor = (++count) / array.length;
-            return returnValue;
+            return oldVal;
         } else {
             return null;
         }
     }
 
     private double loadFactor() {
-        return (double)items / (double)hashTable.length;
+        return (double)(++items) / (double)hashTable.length;
     }
 
     @Override
